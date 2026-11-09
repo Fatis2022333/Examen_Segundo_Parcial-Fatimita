@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Papeleria Escolar</title>
+</head>
+<body style="background-color: rgb(142, 253, 253);">
+
+<h1 style="font-family: cursive; font-size:  45px; text-align: center; background-color: rgb(14, 77, 186) ; color: white">PAPELERIA Dentro del CECY</h1><br>
+<h1 style="font-family: monospace; font-size: 22px;">Si deceas adquirir copias por bajo costo a continuación te muestro los precios más bajos:<br></h1>
+<ul style="font-family: monospace; color: blue; font-size: 18px;">
+    <li>Copias a color: $1.50 </li>
+    <li>Copias blanco y negro: $1.00</li>
+</ul>
+<p style="font-family: sans-serif; color: maroon; font-size: 17px;">Nota: Contamos con descuentos a partir de cierto numero de copias y para estudiantes tenemos un descuento del 25% al precentar la credencial estudiantil.</p>
+
+<form>
+
+<center><label style="font-family: cursive; background-color: rgb(49, 167, 171); color: white;">Copias a color:</label>
+<input type="number" id="color" value="0"></center>
+
+<br><br>
+
+<center><label style="font-family: cursive; background-color: rgb(49, 167, 171); color: white;">Copias blanco y negro:</label>
+<input type="number" id="negro" value="0"></center>
+
+<br><br>
+
+<center><label style="font-family: cursive; background-color: rgb(49, 167, 171); color: white;">Presenta credencial:</label>
+<input type="checkbox" id="credencial"></center>
+
+<br><br>
+
+<center><button type="button" onclick="calcular()">
+Calcular
+</button></center>
+
+</form>
+
+<script>
+
+function calcular() {
+
+let color = Number(colorCopias.value);
+let negro = Number(negroCopias.value);
+
+if (color <= 50) {
+    precioColor = 1.50;
+} else if (color <= 100) {
+    precioColor = 1.30;
+} else {
+    precioColor = 1;
+}
+
+if (negro <= 50) {
+    precioNegro = 1;
+} else if (negro <= 100) {
+    precioNegro = 0.80;
+} else {
+    precioNegro = 0.50;
+}
+
+let total = (color * precioColor) +
+            (negro * precioNegro);
+
+if (credencial.checked) {
+    total = total * 0.75;
+}
+
+document.write("Total a pagar: $" + total.toFixed(2));
+
+}
+
+</script>
+
+</body>
+</html>
